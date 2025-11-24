@@ -1,0 +1,4 @@
+# Archivo de entorno principal (el que contiene el secreto)
+.env
+# Dependencias de Node
+/node_modules

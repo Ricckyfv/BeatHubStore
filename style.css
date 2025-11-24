@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #242430;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* --- HEADER --- */
+.header {
+    display: flex;
+    align-items: center;
+    min-height: 70vh; 
+    padding: 80px 0 0 0; 
+    /* Espacio para el menú fijo si se requiere */
+}
+
+.swiper-slide {
+    padding: 0 80px 50px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-prev::after {
+    font-size: 27px;
+}
+
+.swiper-button-next::after {
+    font-size: 27px;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    padding: 0 20px;
+    background-color: #242430;
+}
+
+.logo {
+    /* Define el ancho total del contenedor del logo si es necesario, pero generalmente no es crítico */
+    display: block; 
+}
+
+/* 3. Estilos para la IMAGEN del logo (¡La parte más importante!) */
+.logo img {
+    /* Define el alto de la imagen. El ancho se ajustará automáticamente */
+    height: 150px; /* Un buen tamaño inicial: 40px - 50px es estándar para headers */
+    width: auto;
+    /* Esto es crucial para que la imagen se adapte perfectamente */
+    display: block; 
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 1rem;
+    color: #fff;
+    padding: 0 20px;
+    line-height: 100px;
+    display: block;
+}
+
+.menu .navbar ul li a:hover {
+    color: #7270ec;
+}
+
+
+#menu {
+    display: none;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none; 
+}
+
+/* --- CARRITO --- */
+.submenu {
+    position: relative;
+}
+
+#img-carrito {
+    width: 30px;
+    cursor: pointer;
+}
+
+.submenu #carrito {
+    display: none;
+}
+
+
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: #4e4b50;
+    padding: 20px;
+    min-width: 400px;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    color: white;
+}
+
+/* Estilo para la burbuja del contador */
+.contador-carrito {
+    background-color: #7270ec; /* El color de acento de tu marca */
+    color: white;
+    border-radius: 50%; /* Círculo perfecto */
+    padding: 2px 6px; 
+    font-size: 12px;
+    font-weight: bold;
+    /* Posicionamiento absoluto para que flote sobre el ícono */
+    position: absolute;
+    top: 10px; /* Ajustar posición vertical */
+    right: -5px; /* Ajustar posición horizontal, puede requerir prueba y error */
+    line-height: 1;
+    z-index: 1001;
+    min-width: 18px; /* Asegura que se vea como un círculo, incluso con '0' */
+    text-align: center;
+    /* Ocultar el contador si está vacío (al inicio) */
+    display: none; 
+}
+
+/* Estilo para el área del total del carrito */
+#total-carrito {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #7270ec; /* Una línea divisoria para separarlo */
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right; /* Alineado a la derecha para ver el monto */
+}
+
+
+/* --- SLIDER HEADER --- */
+.header-content {
+    padding-top: 120px;
+}
+
+.header-info {
+    display: flex;
+}
+
+.header-txt {
+    width: 80%;
+}
+
+.header-txt h1 {
+    font-size: 3rem;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.header-img {
+    width: 50%;
+    text-align: right;
+}
+
+.header-img img {
+    width: 500px;
+}
+
+.prices {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.price-1 {
+    font-size: 1rem;
+    color: #747b8f; 
+    text-decoration: line-through;
+    margin-right: 20px;
+}
+
+.price-2 {
+    font-size: 2rem;
+    color: #7270ec; 
+    font-weight: bold;
+}
+
+/* Botones generales */
+.btn-1 {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background-color: #7270ec;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.btn-1:hover {
+    background-color: #5654b3;
+}
+
+/* --- PROMOCIONES --- */
+hr {
+    border: 1px solid #747b8f;
+    opacity: 0.3;
+}
+
+.promos {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.promos h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 35px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1f1f2b;
+    padding: 35px;
+    border-radius: 10px;
+}
+
+.category-1 {
+    text-align: left;
+}
+
+.category h3 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.category-img img {
+    width: 150px;
+}
+
+.btn-3 {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #7270ec;
+    color: white;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.btn-3:hover {
+    background-color: #7270ec;
+}
+
+/* --- PRODUCTOS --- */
+.products {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 70px;
+}
+
+.product {
+    background-color: #1f1f2b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 50px; 
+}
+
+.product img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.product-txt h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-size: 1.25rem;
+    color: #7270ec;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- SWIPER NAV BUTTONS --- */
+.swiper-button-next::after, .swiper-button-prev::after {
+    color: #fff;
+}
+.swiper-pagination-bullet-active {
+    background-color: #7270ec;
+}
+
+/* --- FOOTER --- */
+
+.site-footer {
+    background-color: #1f1f2b;
+    color: #a9a9b3;
+    padding-top: 60px;
+    border-top: 1px solid #3a3a4a; 
+    font-size: 15px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 30px; 
+    padding-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px; 
+}
+
+/* Columna de "About" */
+.footer-about .footer-logo {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    line-height: 1.7;
+}
+
+/* Títulos de las columnas */
+.footer-column h4 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Línea decorativa debajo de los títulos */
+.footer-column h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #7270ec;
+    margin-top: 8px;
+}
+
+/* Listas de enlaces */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #a9a9b3;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #7270ec;
+    padding-left: 5px; /* Pequeño desplazamiento */
+}
+
+/* Iconos de redes sociales */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #3a3a4a;
+    color: #fff;
+    font-weight: normal;
+    text-decoration: none;
+    border-radius: 50%; /* Círculo perfecto */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #7270ec; 
+    transform: translateY(-3px); /* Pequeño salto */
+}
+
+
+/* Barra inferior del footer */
+.footer-bottom {
+    background-color: #181822;
+    padding: 20px 0;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividad */
+    gap: 15px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #747b8f; /* Color gris secundario */
+}
+
+.payment-methods {
+    display: flex;
+    gap: 15px;
+    color: #747b8f;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .menu {
+        padding: 20px;
+    }
+    
+    .menu label {
+        display: initial;
+    }
+    
+    .menu .navbar {
+        position:absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #181818;
+        display: none; 
+    }
+    
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar {
+        display: initial;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .submenu:hover #carrito {
+        width: 100%;
+    }
+
+    .mySwiper-1 {
+        width: 350px;
+    }
+    
+    .header-content {
+        padding: 100px 20px 50px 20px;
+    }
+
+    .header-info {
+        padding: 0;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-txt, .header-img {
+        width: 100%;
+    }
+
+    .header-img {
+        text-align: center;
+    }
+
+    .header-img img {
+        margin-top: 30px;
+        width: 200px;
+    }
+
+    .promos {
+        margin-top: 20px;
+    }
+
+    .promos h2 {
+        font-size: 2.2rem;
+    }
+
+    .category-img img {
+        width: 120px;
+    }
+
+    .btn-3 {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        width: 85%;
+    }
+
+    .prices {
+        flex-direction: column;
+    }
+
+    .price-1 {
+        margin: 0;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+
+    .products {
+        margin-top: 20px;
+    }
+
+
+    .products h2 {
+        font-size: 2.3rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-column {
+        /* Centramos el contenido de cada columna */
+        text-align: center;
+    }
+
+    /* Centramos la línea decorativa */
+    .footer-column h4::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Centramos los iconos sociales */
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Apilamos la barra inferior */
+    .footer-bottom .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .payment-methods {
+        order: -1; /* Pone los métodos de pago arriba del copyright */
+    }
+}
+
+@media (max-width: 768px) {
+    /* ======================================
+    AJUSTES DE CONTENIDO GENERAL Y PRODUCTOS
+    ======================================
+    */
+    .main-content {
+        padding: 50px 20px; /* Reduce el padding horizontal */
+    }
+
+    .header-txt h1 {
+        font-size: 40px; /* Reduce el tamaño del título principal */
+    }
+
+    .header-txt p {
+        font-size: 16px;
+    }
+
+    .btn-1 {
+        padding: 10px 20px; /* Reduce el padding de los botones */
+        font-size: 14px;
+    }
+
+    /* Sección de Promociones (Si usas Grid de 2 columnas, aquí lo pones a 1) */
+    .promociones-content {
+        grid-template-columns: 1fr; /* Si antes era de 2 columnas, ahora a 1 */
+        gap: 30px;
+    }
+
+    .promociones-content h2 {
+        font-size: 20px; /* Reduce el tamaño del título de la sección */
+    }
+
+    /* Estilos para el MySwiper-1 (el slider principal) */
+    .mySwiper-1 {
+        width: 100%; /* El slider ocupa todo el ancho disponible */
+        max-width: 300px; /* Opcional: para que no se vea gigantesco */
+        margin: 0 auto; /* Centrarlo */
+    }
+
+    /* ======================================
+    AJUSTES FINOS AL FOOTER (Ya se apila en 991px, pero refinamos)
+    ======================================
+    */
+    .site-footer {
+        padding-top: 40px; /* Reduce el padding superior */
+    }
+}
+
+@media (max-width: 480px) {
+    /* ======================================
+    AJUSTES GENERALES Y FUENTES
+    ======================================
+    */
+    .container {
+        padding: 0 15px; /* Reduce el padding general del contenedor */
+    }
+
+    .menu {
+        padding: 15px 10px; /* Padding reducido para el header */
+    }
+
+    .header-txt h1 {
+        font-size: 32px; /* Reducción adicional del título principal */
+    }
+
+    h2 {
+        font-size: 26px; /* Títulos de sección más pequeños */
+        margin-bottom: 25px;
+    }
+    
+    .header-img img {
+        width: 180px; /* Imagen de producto ligeramente más pequeña */
+    }
+    
+    /* ======================================
+    AJUSTES DE FOOTER Y ELEMENTOS FLEXIBLES
+    ======================================
+    */
+    .footer-container {
+        gap: 30px; /* Espacio reducido entre bloques apilados */
+    }
+
+    .footer-bottom .container {
+        /* Centra el texto del copyright y pagos */
+        text-align: center;
+    }
+    
+    .payment-methods {
+        /* Si los métodos de pago están demasiado grandes, ajústalos aquí */
+        gap: 10px;
+        font-size: 12px;
+    }
+    
+    /* Pequeño ajuste a los iconos sociales si son muy grandes */
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+}
