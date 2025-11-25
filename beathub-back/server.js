@@ -12,8 +12,20 @@ app.listen(PORT, () => {
     console.log(`Backend escuchando en el puerto ${PORT}`);
 });
 
+// 2. Definir los orígenes permitidos
+const allowedOrigins = [
+    'http://127.0.0.1:5500', // Para pruebas locales
+    'http://localhost:4242',  // Para pruebas locales
+    'https://ricckyfv.github.io' // ¡TU DOMINIO DE GITHUB PAGES!
+];
+
 // Middlewares
-app.use(cors({ origin: 'http://127.0.0.1:5500' })); // Reemplaza 5500 por el puerto de tu frontend
+app.use(cors({ 
+    origin: 'http://127.0.0.1:5500',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
+    credentials: true // Permite cookies y encabezados de autenticación
+})); // Reemplaza 5500 por el puerto de tu frontend
+
 app.use(express.json()); // Permite recibir JSON en las peticiones
 
 // ----------------------------------------------------
