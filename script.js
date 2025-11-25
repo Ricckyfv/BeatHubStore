@@ -85,8 +85,9 @@ function manejarPago(e) {
         return;
     }
     
+    //http://localhost:4242/create-checkout-session
     // ⚠️ ATENCIÓN: Esta parte requiere un backend real (servidor)
-    fetch('http://localhost:4242/create-checkout-session', {
+    fetch('https://beathub-back.onrender.com/create-checkout-session', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -126,7 +127,7 @@ function obtenerDatosDelCarritoParaStripe() {
             console.error('Fila de carrito sin ID de producto. Skipped.');
             return; 
         }
-        
+
         const titulo = fila.children[1].textContent;
         const precioTexto = fila.children[2].textContent;
         const precioCentavos = Math.round(parseFloat(precioTexto.replace('$', '')) * 100);

@@ -5,7 +5,12 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 4242; // Puerto recomendado por Stripe
+// En server.js
+const PORT = process.env.PORT || 4242; // Usa el puerto de Render o 4242 localmente
+
+app.listen(PORT, () => {
+    console.log(`Backend escuchando en el puerto ${PORT}`);
+});
 
 // Middlewares
 app.use(cors({ origin: 'http://127.0.0.1:5500' })); // Reemplaza 5500 por el puerto de tu frontend
