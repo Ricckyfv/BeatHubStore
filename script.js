@@ -40,8 +40,9 @@ let swiper2 = new Swiper(".mySwiper-2", {
 
 const carrito = document.getElementById('carrito');
 const elementos1 = document.getElementById('lista-1'); // Sección Promociones
-const elementos2 = document.getElementById('lista-2'); // Sección Productos
-const lista = document.querySelector('#lista-carrito tbody');
+const elementos2 = document.getElementById('lista-2'); // Sección Nuevos Productos
+const elementos3 = document.getElementById('lista-3'); // Sección Productos
+const lista = document.querySelector('#lista-carrito tbody'); 
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 // 💡 NUEVA REFERENCIA
 const contadorCarrito = document.getElementById('contador-carrito');
@@ -60,6 +61,7 @@ function cargarEventListeners() {
     // Dispara cuando se presiona "Agregar Carrito" en las secciones
     elementos1.addEventListener('click', comprarElemento);
     elementos2.addEventListener('click', comprarElemento);
+    elementos3.addEventListener('click', comprarElemento);
 
     // Cuando se elimina un curso del carrito
     carrito.addEventListener('click', eliminarElemento);

@@ -21,10 +21,10 @@ const allowedOrigins = [
 
 // Middlewares
 app.use(cors({ 
-    origin: 'http://127.0.0.1:5500',
+    origin: allowedOrigins,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
     credentials: true // Permite cookies y encabezados de autenticación
-})); // Reemplaza 5500 por el puerto de tu frontend
+}));
 
 app.use(express.json()); // Permite recibir JSON en las peticiones
 
@@ -50,6 +50,46 @@ const PRODUCTS = {
     },
     '4': { 
         name: "Promo 4 - Audífonos", 
+        price: 15000,
+        image: 'http://127.0.0.1:5500/images/ph4.png'
+    },
+    '5': { 
+        name: "Nuevo Producto 1 - Audífonos", 
+        price: 15000, // $150.00 en centavos
+        image: 'http://127.0.0.1:5500/images/ph1.png'
+    },
+    '6': { 
+        name: "Nuevo Producto 2 - Audífonos", 
+        price: 15000, // $150.00 en centavos
+        image: 'http://127.0.0.1:5500/images/ph2.png'
+    },
+    '7': { 
+        name: "Nuevo Producto 3 - Audífonos", 
+        price: 15000,
+        image: 'http://127.0.0.1:5500/images/ph3.png'
+    },
+    '8': { 
+        name: "Nuevo Producto 4 - Audífonos", 
+        price: 15000,
+        image: 'http://127.0.0.1:5500/images/ph4.png'
+    },
+    '9': { 
+        name: "Producto 1 - Audífonos", 
+        price: 15000, // $150.00 en centavos
+        image: 'http://127.0.0.1:5500/images/ph1.png'
+    },
+    '10': { 
+        name: "Producto 2 - Audífonos", 
+        price: 15000, // $150.00 en centavos
+        image: 'http://127.0.0.1:5500/images/ph2.png'
+    },
+    '11': { 
+        name: "Producto 3 - Audífonos", 
+        price: 15000,
+        image: 'http://127.0.0.1:5500/images/ph3.png'
+    },
+    '12': { 
+        name: "Producto 4 - Audífonos", 
         price: 15000,
         image: 'http://127.0.0.1:5500/images/ph4.png'
     },
