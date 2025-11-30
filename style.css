@@ -25,7 +25,6 @@ body {
     align-items: center;
     min-height: 70vh; 
     padding: 80px 0 0 0; 
-    /* Espacio para el menú fijo si se requiere */
 }
 
 .swiper-slide {
@@ -57,16 +56,12 @@ body {
 }
 
 .logo {
-    /* Define el ancho total del contenedor del logo si es necesario, pero generalmente no es crítico */
     display: block; 
 }
 
-/* 3. Estilos para la IMAGEN del logo (¡La parte más importante!) */
 .logo img {
-    /* Define el alto de la imagen. El ancho se ajustará automáticamente */
-    height: 150px; /* Un buen tamaño inicial: 40px - 50px es estándar para headers */
+    height: 150px; 
     width: auto;
-    /* Esto es crucial para que la imagen se adapte perfectamente */
     display: block; 
 }
 
@@ -138,19 +133,19 @@ th, td {
 
 /* Estilo para la burbuja del contador */
 .contador-carrito {
-    background-color: #7270ec; /* El color de acento de tu marca */
+    background-color: #7270ec; 
     color: white;
-    border-radius: 50%; /* Círculo perfecto */
+    border-radius: 50%;
     padding: 2px 6px; 
     font-size: 12px;
     font-weight: bold;
     /* Posicionamiento absoluto para que flote sobre el ícono */
     position: absolute;
-    top: 10px; /* Ajustar posición vertical */
-    right: -5px; /* Ajustar posición horizontal, puede requerir prueba y error */
+    top: 10px; 
+    right: -5px; 
     line-height: 1;
     z-index: 1001;
-    min-width: 18px; /* Asegura que se vea como un círculo, incluso con '0' */
+    min-width: 18px; 
     text-align: center;
     /* Ocultar el contador si está vacío (al inicio) */
     display: none; 
@@ -160,11 +155,11 @@ th, td {
 #total-carrito {
     margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px solid #7270ec; /* Una línea divisoria para separarlo */
+    border-top: 1px solid #7270ec;
     color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
-    text-align: right; /* Alineado a la derecha para ver el monto */
+    text-align: right; 
 }
 
 
@@ -331,6 +326,150 @@ hr {
     background-color: #7270ec;
 }
 
+/* --- SERVICIOS --- */
+.services {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.service-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background-color: #2d2d3a; /* Un poco más claro que el fondo */
+    padding: 30px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: #7270ec; /* Tu color morado */
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #b7b7b7;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --- CONTACTO --- */
+.contact {
+    padding: 100px 0;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #b7b7b7;
+    margin-bottom: 30px;
+}
+
+.contact-info ul li {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form .input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #1f1f2b;
+    border: 1px solid #3f3f3f;
+    border-radius: 5px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: #7270ec;
+}
+
+/* .contact-form button {
+    cursor: pointer;
+    border: none;
+    max-width: 200px;
+} */
+
+/* Estilo del botón de Enviar Mensaje */
+.contact-form button {
+    background-color: #7270ec; 
+    color: #ffffff;
+    border: 2px solid #7270ec; 
+    padding: 12px 35px;
+    border-radius: 25px; 
+    font-size: 1rem;
+    font-weight: 600; 
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 15px rgba(114, 112, 236, 0.3); 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/* Efecto Hover */
+.contact-form button:hover {
+    color: #fff; 
+    border-color: #fff;
+}
+
+/* Responsive para Contacto */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .contact-form .input-group {
+        flex-direction: column;
+    }
+}
+
 /* --- FOOTER --- */
 
 .site-footer {
@@ -423,17 +562,15 @@ hr {
     color: #fff;
     font-weight: normal;
     text-decoration: none;
-    border-radius: 50%; /* Círculo perfecto */
+    border-radius: 50%; 
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
     background-color: #7270ec; 
-    transform: translateY(-3px); /* Pequeño salto */
+    transform: translateY(-3px); 
 }
 
-
-/* Barra inferior del footer */
 .footer-bottom {
     background-color: #181822;
     padding: 20px 0;
@@ -568,22 +705,18 @@ hr {
     }
 
     .footer-column {
-        /* Centramos el contenido de cada columna */
         text-align: center;
     }
 
-    /* Centramos la línea decorativa */
     .footer-column h4::after {
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* Centramos los iconos sociales */
     .social-links {
         justify-content: center;
     }
 
-    /* Apilamos la barra inferior */
     .footer-bottom .container {
         flex-direction: column;
         justify-content: center;
@@ -600,11 +733,11 @@ hr {
     ======================================
     */
     .main-content {
-        padding: 50px 20px; /* Reduce el padding horizontal */
+        padding: 50px 20px; 
     }
 
     .header-txt h1 {
-        font-size: 40px; /* Reduce el tamaño del título principal */
+        font-size: 40px; 
     }
 
     .header-txt p {
@@ -612,60 +745,51 @@ hr {
     }
 
     .btn-1 {
-        padding: 10px 20px; /* Reduce el padding de los botones */
+        padding: 10px 20px; 
         font-size: 14px;
     }
 
-    /* Sección de Promociones (Si usas Grid de 2 columnas, aquí lo pones a 1) */
     .promociones-content {
-        grid-template-columns: 1fr; /* Si antes era de 2 columnas, ahora a 1 */
+        grid-template-columns: 1fr; 
         gap: 30px;
     }
 
     .promociones-content h2 {
-        font-size: 20px; /* Reduce el tamaño del título de la sección */
+        font-size: 20px; 
     }
 
-    /* Estilos para el MySwiper-1 (el slider principal) */
     .mySwiper-1 {
-        width: 100%; /* El slider ocupa todo el ancho disponible */
-        max-width: 300px; /* Opcional: para que no se vea gigantesco */
-        margin: 0 auto; /* Centrarlo */
+        width: 100%; 
+        max-width: 300px;
+        margin: 0 auto; 
     }
 
-    /* ======================================
-    AJUSTES FINOS AL FOOTER (Ya se apila en 991px, pero refinamos)
-    ======================================
-    */
     .site-footer {
-        padding-top: 40px; /* Reduce el padding superior */
+        padding-top: 40px; 
     }
 }
 
 @media (max-width: 480px) {
-    /* ======================================
-    AJUSTES GENERALES Y FUENTES
-    ======================================
-    */
+
     .container {
-        padding: 0 15px; /* Reduce el padding general del contenedor */
+        padding: 0 15px; 
     }
 
     .menu {
-        padding: 15px 10px; /* Padding reducido para el header */
+        padding: 15px 10px; 
     }
 
     .header-txt h1 {
-        font-size: 32px; /* Reducción adicional del título principal */
+        font-size: 32px; 
     }
 
     h2 {
-        font-size: 26px; /* Títulos de sección más pequeños */
+        font-size: 26px; 
         margin-bottom: 25px;
     }
     
     .header-img img {
-        width: 180px; /* Imagen de producto ligeramente más pequeña */
+        width: 180px; 
     }
     
     /* ======================================
@@ -673,21 +797,18 @@ hr {
     ======================================
     */
     .footer-container {
-        gap: 30px; /* Espacio reducido entre bloques apilados */
+        gap: 30px;
     }
 
     .footer-bottom .container {
-        /* Centra el texto del copyright y pagos */
         text-align: center;
     }
     
     .payment-methods {
-        /* Si los métodos de pago están demasiado grandes, ajústalos aquí */
         gap: 10px;
         font-size: 12px;
     }
     
-    /* Pequeño ajuste a los iconos sociales si son muy grandes */
     .social-icon {
         width: 35px;
         height: 35px;

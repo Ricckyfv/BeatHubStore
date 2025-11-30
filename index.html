@@ -28,9 +28,10 @@
         <nav class="navbar">
           <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="#lista-1">Promociones</a></li>
+            <li><a href="#lista-2">Nuevos</a></li>
+            <li><a href="#servicios">Servicios</a></li> 
+            <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
 
@@ -324,6 +325,50 @@
         <div class="swiper-button-prev"></div>
       </div>
     </section>
+
+    <section class="services container" id="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="service-content">
+        <div class="service-card">
+            <div class="service-icon">🚚</div>
+            <h3>Envío Gratuito</h3>
+            <p>Envíos asegurados y gratuitos en pedidos superiores a $100. Recíbelo en 24/48h.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3>Garantía Extendida</h3>
+            <p>Disfruta de 2 años de garantía en todos nuestros productos de audio premium.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎧</div>
+            <h3>Soporte 24/7</h3>
+            <p>Nuestro equipo de expertos en sonido está disponible para ayudarte a cualquier hora.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact container" id="contacto">
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes dudas sobre qué auriculares elegir? Escríbenos.</p>
+            <ul>
+                <li>📍 Calle Principal 123, Ciudad</li>
+                <li>📧 contacto@beathub.com</li>
+                <li>📞 +1 234 567 890</li>
+            </ul>
+        </div>
+        
+        <form class="contact-form" id="formulario-contacto">
+            <div class="input-group">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <textarea id="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
+            <button type="submit" class="btn-3">Enviar Mensaje</button>
+        </form>
+    </div>
+</section>
 
     <footer class="site-footer">
       <div class="footer-container container">

@@ -3,14 +3,12 @@ require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const express = require('express');
 const cors = require('cors');
+// --- 1. AÑADE ESTO ARRIBA (Junto a los otros require) ---
+const nodemailer = require('nodemailer');
 
 const app = express();
 // En server.js
 const PORT = process.env.PORT || 4242; // Usa el puerto de Render o 4242 localmente
-
-app.listen(PORT, () => {
-    console.log(`Backend escuchando en el puerto ${PORT}`);
-});
 
 // 2. Definir los orígenes permitidos
 const allowedOrigins = [
@@ -28,39 +26,88 @@ app.use(cors({
 
 app.use(express.json()); // Permite recibir JSON en las peticiones
 
+app.post('/enviar-correo', async (req, res) => {
+    const { nombre, email, mensaje } = req.body;
+
+    try {
+        // Configurar el transporte (quién envía el correo)
+        const transporter = nodemailer.createTransport({
+            // ⚠️ CAMBIAMOS 'service: gmail' por la configuración explícita:
+            host: 'smtp.gmail.com',
+            port: 465, // Puerto seguro para SSL
+            secure: true, // Usa SSL/TLS (el puerto 465 requiere esto)
+            auth: {
+                user: process.env.EMAIL_USER, // Tu correo de Gmail
+                pass: process.env.EMAIL_PASS  // La contraseña de aplicación de 16 letras
+            }
+        });
+
+        // Configurar el contenido del correo
+        const mailOptions = {
+            from: `"${nombre}" <${email}>`, // Quien lo envía (según el form)
+            to: process.env.EMAIL_USER, // A quién le llega (A TI MISMO)
+            subject: `Nuevo mensaje de contacto BeatHub de: ${nombre}`,
+            text: `
+                Has recibido un nuevo mensaje desde tu web:
+                
+                Nombre: ${nombre}
+                Email: ${email}
+                Mensaje:
+                ${mensaje}
+            `
+        };
+
+        // Enviar el correo
+        await transporter.sendMail(mailOptions);
+
+        res.status(200).json({ message: 'Correo enviado con éxito' });
+
+    } catch (error) {
+        console.error('Error al enviar el correo:', error);
+        res.status(500).json({ error: 'Error al enviar el correo' });
+        
+        // Responde al frontend con el error, pero oculta detalles sensibles.
+        res.status(500).json({ error: 'Fallo interno del servidor. Revisar logs.' });
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Backend escuchando en el puerto ${PORT}`);
+});
+
+
 // ----------------------------------------------------
-// ⚠️ 1. SIMULACIÓN DE BASE DE DATOS DE PRODUCTOS (Backend)
+// (Backend)
 // ----------------------------------------------------
 const PRODUCTS = {
-    // 💡 LAS CLAVES AHORA SON '1', '2', '3', '4' PARA COINCIDIR CON TU HTML
     '1': { 
         name: "Promo 1 - Audífonos", 
-        price: 15000, // $150.00 en centavos
-        image: 'http://127.0.0.1:5500/images/ph1.png'
+        price: 15000,
+        image: 'https://ricckyfv.github.io/BeatHubStore/images/ph1.png'
     },
     '2': { 
         name: "Promo 2 - Audífonos", 
-        price: 15000, // $150.00 en centavos
-        image: 'http://127.0.0.1:5500/images/ph2.png'
+        price: 15000,
+        image: 'https://ricckyfv.github.io/BeatHubStore/images/ph2.png'
     },
     '3': { 
         name: "Promo 3 - Audífonos", 
         price: 15000,
-        image: 'http://127.0.0.1:5500/images/ph3.png'
+        image: 'https://ricckyfv.github.io/BeatHubStore/images/ph3.png'
     },
     '4': { 
         name: "Promo 4 - Audífonos", 
         price: 15000,
-        image: 'http://127.0.0.1:5500/images/ph4.png'
+        image: 'https://ricckyfv.github.io/BeatHubStore/images/ph4.png'
     },
     '5': { 
         name: "Nuevo Producto 1 - Audífonos", 
-        price: 15000, // $150.00 en centavos
+        price: 15000, 
         image: 'http://127.0.0.1:5500/images/ph1.png'
     },
     '6': { 
         name: "Nuevo Producto 2 - Audífonos", 
-        price: 15000, // $150.00 en centavos
+        price: 15000, 
         image: 'http://127.0.0.1:5500/images/ph2.png'
     },
     '7': { 
@@ -75,12 +122,12 @@ const PRODUCTS = {
     },
     '9': { 
         name: "Producto 1 - Audífonos", 
-        price: 15000, // $150.00 en centavos
+        price: 15000, 
         image: 'http://127.0.0.1:5500/images/ph1.png'
     },
     '10': { 
         name: "Producto 2 - Audífonos", 
-        price: 15000, // $150.00 en centavos
+        price: 15000,
         image: 'http://127.0.0.1:5500/images/ph2.png'
     },
     '11': { 
@@ -93,20 +140,16 @@ const PRODUCTS = {
         price: 15000,
         image: 'http://127.0.0.1:5500/images/ph4.png'
     },
-    // Si tienes otra sección (id="lista-2") con productos 5, 6, etc., añádelos aquí:
-    // '5': { name: "Auriculares Estándar", price: 10000 }, // $100.00
-    // '6': { name: "Micrófono USB", price: 8000 },        // $80.00
 };
 // ----------------------------------------------------
-// 2. ENDPOINT PARA CREAR LA SESIÓN DE CHECKOUT
+// ENDPOINT PARA CREAR LA SESIÓN DE CHECKOUT
 // ----------------------------------------------------
 app.post('/create-checkout-session', async (req, res) => {
     try {
         const itemsFromFrontend = req.body.items;
 
-        // Mapear los productos del frontend al formato que Stripe necesita
         const lineItems = itemsFromFrontend.map(item => {
-            // 💡 Aquí el backend VALIDA y usa sus propios precios
+            
             const productInfo = PRODUCTS[item.id];
 
             if (!productInfo) {
