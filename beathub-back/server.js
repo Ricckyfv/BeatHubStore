@@ -166,13 +166,16 @@ app.post('/create-checkout-session', async (req, res) => {
             };
         });
 
+        const succesUrl = 'https://ricckyfv.github.io/BeatHubStore/index.html?pago=exitoso';
+        const cancelUrl = 'https://ricckyfv.github.io/BeatHubStore/index.html?pago=cancelado';
+
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
 
-            success_url: 'http://127.0.0.1:5500/success.html',
-            cancel_url: 'http://127.0.0.1:5500/index.html',
+            success_url: succesUrl,
+            cancel_url: cancelUrl,
         });
 
         res.json({ id: session.id });

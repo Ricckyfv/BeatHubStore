@@ -265,3 +265,19 @@ function vaciarCarrito() {
 
     return false;
 }
+
+function verificarEstadoPago() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const estadoPago = urlParams.get('pago');
+
+    if (estadoPago === 'exitoso') {
+        alert('¡Pago realizado con éxito! Gracias por tu compra.');
+        vaciarCarrito();
+    } else if (estadoPago === 'cancelado') {
+        alert('El pago fue cancelado. Puedes intentar nuevamente.');
+    }
+
+    if(estadoPago) {
+        window.history.replaceState(null, null, window.location.pathname);
+    }
+}
