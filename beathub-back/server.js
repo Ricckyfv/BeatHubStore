@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 4242;
 const allowedOrigins = [
     'http://127.0.0.1:5500', 
     'http://localhost:4242', 
-    'https://ricckyfv.github.io' 
+    'https://ricckyfv.github.io',
+    // 'https://beathub-back.onrender.com'
 ];
 
 // Middlewares
@@ -67,9 +68,13 @@ app.post('/enviar-correo', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Backend escuchando en el puerto ${PORT}`);
-});
+// app.get('/', (req, res) => {
+//     res.send('BeatHub Backend is running on Render!');
+// });
+
+// app.listen(PORT, () => {
+//   console.log(`Backend escuchando en el puerto ${PORT}`);
+// });
 
 
 // ----------------------------------------------------

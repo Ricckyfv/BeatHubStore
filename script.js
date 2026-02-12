@@ -257,7 +257,10 @@ function vaciarCarrito() {
         lista.removeChild(lista.firstChild);
     }
     
-    actualizarContador();
+    // actualizarContador();
+
+    // 2. ¡CRÍTICO! Borramos el rastro en el almacenamiento local
+    localStorage.removeItem('carrito');
 
     sincronizarStorage();
 
@@ -272,7 +275,7 @@ function verificarEstadoPago() {
 
     if (estadoPago === 'exitoso') {
         alert('¡Pago realizado con éxito! Gracias por tu compra.');
-        limpiarCarrito();
+        vaciarCarrito();
     } else if (estadoPago === 'cancelado') {
         alert('El pago fue cancelado. Puedes intentar nuevamente.');
     }
@@ -280,16 +283,6 @@ function verificarEstadoPago() {
     if(estadoPago) {
         window.history.replaceState(null, null, window.location.pathname);
     }
-}
-
-function limpiarCarrito() {
-    if(typeof carrito !== 'undefined') {
-        carrito = [];
-    }
-
-    localStorage.removeItem('carrito');
-
-    actualizarContador()
 }
 
 verificarEstadoPago();
