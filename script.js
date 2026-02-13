@@ -214,7 +214,7 @@ function insertarCarrito(elemento) {
 
     row.innerHTML = `
         <td>
-            <img src="${elemento.imagen}" width=100>
+            <img src="${elemento.imagen}" class="img-carrito-tabla">
         </td>
         <td>
             ${elemento.titulo}

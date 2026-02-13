@@ -597,6 +597,12 @@ hr {
     font-size: 14px;
 }
 
+.img-carrito-tabla {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 991px) {
     .menu {
@@ -628,9 +634,37 @@ hr {
         display: none;
     }
 
-    .submenu:hover #carrito {
+    /* .submenu:hover #carrito {
         width: 100%;
+    } */
+
+
+
+    .submenu:hover #carrito {
+        display: block;
+        position: fixed; /* Cambiamos a fixed para que flote sobre todo */
+        top: 70px; /* Ajusta según la altura de tu menú */
+        right: 10px;
+        left: 10px; /* Le damos un margen a los lados */
+        width: auto; /* Que se adapte al ancho de la pantalla */
+        min-width: 0;
+        max-height: 80vh; /* Para que no se salga de la pantalla si hay muchos items */
+        overflow-y: auto; /* Permite scroll dentro del carrito */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        border: 1px solid #7270ec;
     }
+
+    /* Ajuste de la tabla para que las imágenes no ocupen tanto espacio */
+    #lista-carrito img {
+        width: 60px; /* Imágenes más pequeñas en móvil */
+    }
+
+    #lista-carrito th, #lista-carrito td {
+        font-size: 14px; /* Letra un poco más pequeña */
+        padding: 10px 5px;
+    }
+
+
 
     .mySwiper-1 {
         width: 350px;
