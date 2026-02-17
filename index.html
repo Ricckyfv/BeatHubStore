@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +30,7 @@
             <li><a href="#">Inicio</a></li>
             <li><a href="#lista-1">Promociones</a></li>
             <li><a href="#lista-2">Nuevos</a></li>
-            <li><a href="#servicios">Servicios</a></li> 
+            <li><a href="#servicios">Servicios</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
@@ -47,15 +47,21 @@
                       <th>Imagen</th>
                       <th>Nombre</th>
                       <th>Precio</th>
+                      <th>Cant.</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody></tbody>
                 </table>
-                <div id="total-carrito"></div>
+                <p id="total-carrito">Total: $0.00</p>
+                <div class="botones-carrito">
+                    <a href="#" id="vaciar-carrito" class="btn-3">Vaciar</a>
+                    <button id="proceder-pago" class="btn-1">Pagar</button>
+                </div>
+                <!-- <div id="total-carrito"></div>
                 <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                <button id="proceder-pago" class="btn-1">Pagar con Stripe</button>
-                 <!-- <a href="#" id="vaciar-carrito" class="btn-3">Pagar con Stripe</a> -->
+                <button id="proceder-pago" class="btn-1">Pagar con Stripe</button> -->
+                <!-- <a href="#" id="vaciar-carrito" class="btn-3">Pagar con Stripe</a> -->
               </div>
             </li>
           </ul>
@@ -327,48 +333,62 @@
     </section>
 
     <section class="services container" id="servicios">
-    <h2>Nuestros Servicios</h2>
-    <div class="service-content">
+      <h2>Nuestros Servicios</h2>
+      <div class="service-content">
         <div class="service-card">
-            <div class="service-icon">🚚</div>
-            <h3>Envío Gratuito</h3>
-            <p>Envíos asegurados y gratuitos en pedidos superiores a $100. Recíbelo en 24/48h.</p>
+          <div class="service-icon">🚚</div>
+          <h3>Envío Gratuito</h3>
+          <p>
+            Envíos asegurados y gratuitos en pedidos superiores a $100. Recíbelo
+            en 24/48h.
+          </p>
         </div>
         <div class="service-card">
-            <div class="service-icon">🛡️</div>
-            <h3>Garantía Extendida</h3>
-            <p>Disfruta de 2 años de garantía en todos nuestros productos de audio premium.</p>
+          <div class="service-icon">🛡️</div>
+          <h3>Garantía Extendida</h3>
+          <p>
+            Disfruta de 2 años de garantía en todos nuestros productos de audio
+            premium.
+          </p>
         </div>
         <div class="service-card">
-            <div class="service-icon">🎧</div>
-            <h3>Soporte 24/7</h3>
-            <p>Nuestro equipo de expertos en sonido está disponible para ayudarte a cualquier hora.</p>
+          <div class="service-icon">🎧</div>
+          <h3>Soporte 24/7</h3>
+          <p>
+            Nuestro equipo de expertos en sonido está disponible para ayudarte a
+            cualquier hora.
+          </p>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section class="contact container" id="contacto">
-    <div class="contact-wrapper">
+    <section class="contact container" id="contacto">
+      <div class="contact-wrapper">
         <div class="contact-info">
-            <h2>Contáctanos</h2>
-            <p>¿Tienes dudas sobre qué auriculares elegir? Escríbenos.</p>
-            <ul>
-                <li>📍 Calle Principal 123, Ciudad</li>
-                <li>📧 contacto@beathub.com</li>
-                <li>📞 +1 234 567 890</li>
-            </ul>
+          <h2>Contáctanos</h2>
+          <p>¿Tienes dudas sobre qué auriculares elegir? Escríbenos.</p>
+          <ul>
+            <li>📍 Calle Principal 123, Ciudad</li>
+            <li>📧 contacto@beathub.com</li>
+            <li>📞 +1 234 567 890</li>
+          </ul>
         </div>
-        
+
         <form class="contact-form" id="formulario-contacto">
-            <div class="input-group">
-                <input type="text" id="nombre" placeholder="Nombre" required>
-                <input type="email" id="email" placeholder="Email" required>
-            </div>
-            <textarea id="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
-            <button type="submit" class="btn-3">Enviar Mensaje</button>
+          <div class="input-group">
+            <input type="text" id="nombre" placeholder="Nombre" required />
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <textarea
+            id="mensaje"
+            placeholder="Tu mensaje..."
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="btn-3">Enviar Mensaje</button>
         </form>
-    </div>
-</section>
+      </div>
+    </section>
 
     <footer class="site-footer">
       <div class="footer-container container">
@@ -422,6 +442,8 @@
         </div>
       </div>
     </footer>
+
+    <div id="toast" class="toast">Producto añadido</div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>

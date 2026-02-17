@@ -543,7 +543,7 @@ hr {
 
 .footer-column ul li a:hover {
     color: #7270ec;
-    padding-left: 5px; /* Pequeño desplazamiento */
+    padding-left: 5px; 
 }
 
 /* Iconos de redes sociales */
@@ -580,13 +580,13 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Para responsividad */
+    flex-wrap: wrap; 
     gap: 15px;
 }
 
 .footer-bottom p {
     margin: 0;
-    color: #747b8f; /* Color gris secundario */
+    color: #747b8f; 
 }
 
 .payment-methods {
@@ -602,6 +602,75 @@ hr {
     height: auto;
     display: block;
 }
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #7270ec;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transform: translateY(150%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast.show {
+    transform: translateY(0);
+}
+
+.botones-carrito {
+    display: flex;
+    gap: 10px; 
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.botones-carrito .btn-3, 
+.botones-carrito .btn-1 {
+    flex: 1; 
+    margin: 0;
+    padding: 10px 5px;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#proceder-pago {
+    background-color: #7270ec;
+    border: none;
+}
+
+.cantidad-controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-cantidad {
+    background: #3a3a4a;
+    color: white;
+    border: 1px solid #7270ec;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-cantidad:hover {
+    background: #7270ec;
+}
+
 
 /* --- RESPONSIVE --- */
 @media (max-width: 991px) {
@@ -759,6 +828,7 @@ hr {
     .payment-methods {
         order: -1; /* Pone los métodos de pago arriba del copyright */
     }
+
 }
 
 @media (max-width: 768px) {

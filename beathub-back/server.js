@@ -72,11 +72,6 @@ app.post('/enviar-correo', async (req, res) => {
 //     res.send('BeatHub Backend is running on Render!');
 // });
 
-// app.listen(PORT, () => {
-//   console.log(`Backend escuchando en el puerto ${PORT}`);
-// });
-
-
 // ----------------------------------------------------
 // (Backend)
 // ----------------------------------------------------
